@@ -40,7 +40,7 @@ def rebootRouter(user, password, ip):
 
         # reboot router
         restartPayload = {'IF_ACTION': 'Restart', 'Btn_restart': '', '_sessionTOKEN': sessionToken}
-        restartResponse = s.post(f'{baseUrl}common_page/deviceManag_lua.lua?IF_ACTION=Restart&Btn_restart=&_sessionTOKEN={sessionToken}', cookies=response.cookies)
+        restartResponse = s.post(f'{baseUrl}common_page/deviceManag_lua.lua', data=restartPayload, cookies=response.cookies)
         writeLog(restartResponse.text)
 
         
